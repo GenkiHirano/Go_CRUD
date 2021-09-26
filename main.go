@@ -24,3 +24,4 @@ func dbInit() {
 	}
 	defer db.Close()
 	db.AutoMigrate(&Book{})
+}
