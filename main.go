@@ -25,3 +25,13 @@ func dbInit() {
 	defer db.Close()
 	db.AutoMigrate(&Book{})
 }
+
+// DB Create
+func dbInsert(title string, price int) {
+	db, err := gorm.Open("sqlite3", "book.sqlite3")
+	if err != nil {
+		panic("You can't open DB (dbInsert())")
+	}
+	defer db.Close()
+	db.Create(&Book{Title: title, Price: price})
+}
